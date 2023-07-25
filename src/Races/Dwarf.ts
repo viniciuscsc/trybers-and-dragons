@@ -2,18 +2,18 @@ import Race from './Race';
 
 export default class Dwarf extends Race {
   private _maxLifePoints = 80;
-  private _racesInstances = 0;
+  static _dwarfInstances = 0;
 
   constructor(name: string, dexterity: number) {
     super(name, dexterity);
-    this._racesInstances += 1;
-  }
-  
-  get maxLifePoints(): number {
-    return this._maxLifePoints;
+    Dwarf._dwarfInstances += 1;
   }
 
-  createdRacesInstances(): number {
-    return this._racesInstances;
+  static createdRacesInstances(): number {
+    return this._dwarfInstances;
+  }
+
+  get maxLifePoints(): number {
+    return this._maxLifePoints;
   }
 }
