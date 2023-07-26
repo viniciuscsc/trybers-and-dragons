@@ -1,10 +1,3 @@
-// export type FighterType = {
-//   lifePoints: number,
-//   strength: number,
-//   defense: number,
-//   energy: number,
-// };
-
 import Energy from './Energy';
 
 export default interface Fighter {
