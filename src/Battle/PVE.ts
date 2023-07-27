@@ -12,14 +12,13 @@ export default class PVE extends Battle {
   // battleWinner = 1, se player1 vencer
   // battleWinner = -1, se enemies vencer
   fight(): number {
-    this._enemies.forEach((enemy) => {
+    const player1WinsAllBattles = this._enemies.every((enemy) => {
       while (this._player1.lifePoints > 0 && enemy.lifePoints > 0) {
         this._player1.attack(enemy);
         enemy.attack(this._player1);
       }
-      const battleWinner = this._player1.lifePoints === -1 ? -1 : 1;
-      return battleWinner;
+      return this._player1.lifePoints > 0;
     });
-    return 1;
+    return player1WinsAllBattles ? 1 : -1;
   }
 }
